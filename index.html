@@ -18,39 +18,41 @@
     }
     .btn-primary {
       background: linear-gradient(90deg, #3B82F6, #06B6D4);
-      color: white;
+      color: #F9FAFB;
       font-weight: 600;
-      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.35);
     }
     .btn-primary:hover {
-      filter: brightness(1.2);
+      filter: brightness(1.1);
     }
     .btn-light {
-      background-color: #F5F6F7;
-      color: #0B0B0F;
+      background-color: #F9FAFB;
+      color: #020617;
       font-weight: 600;
-      transition: all 0.3s ease;
     }
     .btn-light:hover {
-      background-color: #E2E8F0;
+      background-color: #E5E7EB;
     }
     .section-bg {
-      background-color: #111114;
+      background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.15), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.12), transparent 55%);
     }
   </style>
 </head>
-<body>
-
-  <!-- NAVBAR -->
-  <header class="sticky top-0 z-30 bg-gradient-to-r from-blue-600 to-cyan-400 border-b border-gray-800">
-
+<body class="min-h-screen">
+  <!-- HEADER -->
+  <header class="sticky top-0 z-30 bg-[#05050A]/90 border-b border-gray-800 backdrop-blur">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-sm font-bold shadow-lg">T</div>
-        <span class="font-semibold text-lg tracking-tight">TuChatbot</span>
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-500 via-violet-500 to-cyan-400 flex items-center justify-center shadow-lg">
+          <span class="text-xs font-bold text-white">TU</span>
+        </div>
+        <div>
+          <p class="text-sm font-semibold">TuChatbot</p>
+          <p class="text-[10px] text-gray-400 -mt-0.5">IA que responde, atiende y vende por ti</p>
+        </div>
       </div>
-      <nav class="hidden md:flex items-center gap-8 text-sm text-gray-300">
-        <a href="#beneficios" class="hover:text-white transition">Beneficios</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-gray-300">
         <a href="#funciona" class="hover:text-white transition">Cómo funciona</a>
         <a href="#planes" class="hover:text-white transition">Planes</a>
       </nav>
@@ -59,81 +61,93 @@
   </header>
 
   <!-- HERO -->
-<section class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
-  <!-- Columna izquierda -->
-  <div>
-    <h2 class="text-4xl md:text-5xl font-bold mb-5 leading-tight">
-      <span class="gradient-text">TuChatbot con IA</span> que vende y atiende 24/7 en tu WhatsApp
-    </h2>
-    <p class="text-gray-400 mb-6 max-w-lg text-base md:text-lg">
-      Responde como tú, captura datos de tus conversaciones y agenda citas automáticamente. Todo personalizado con tu voz y tu estilo.
-    </p>
-    <div class="flex flex-wrap gap-4 mb-4">
-      <a href="#prueba" class="px-6 py-3 rounded-full btn-primary text-sm">Prueba gratis 3 días</a>
-      <a href="#whatsapp" class="px-6 py-3 rounded-full border border-blue-500 text-blue-400 text-sm font-semibold hover:bg-blue-500 hover:text-white transition">Hablemos por WhatsApp</a>
-    </div>
-    <p class="text-xs text-gray-500">Tu Chatbot personalizado con Inteligencia Artificial</p>
-  </div>
-
-  <!-- CHAT HERO -->
-  <div>
-    <div class="bg-gradient-to-r from-blue-700 to-blue-500 border border-blue-700 rounded-3xl p-5 md:p-6 shadow-[0_20px_60px_rgba(15,23,42,0.9)]">
-      <div class="flex justify-between items-center mb-4">
-        <div>
-          <p class="text-[11px] text-slate-400">Demo en directo</p>
-          <p class="text-sm font-semibold">Prueba la Inteligencia Artificial en acción</p>
-        </div>
-        <span class="text-[10px] px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/40 flex items-center gap-1">
-          <span class="w-2.5 h-2.5 rounded-full bg-white animate-pulse"></span> En vivo
-        </span>
-      </div>
-
-      <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 flex flex-col h-80">
-        <!-- Mensajes -->
-        <div id="chatbox" class="flex-1 space-y-3 overflow-y-auto pr-1 text-xs md:text-sm"></div>
-
-        <!-- Input -->
-        <form id="chatForm" class="mt-4 flex items-center gap-2">
-          <input
-            id="chatInput"
-            type="text"
-            autocomplete="off"
-            placeholder="Escribe tu respuesta..."
-            class="flex-1 px-3 py-2 rounded-full bg-slate-900 border border-slate-700 text-xs md:text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <button
-            type="submit"
-            class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-500 text-sm shadow-md">
-            ✈
-          </button>
-        </form>
-      </div>
-
-      <p class="mt-3 text-[11px] md:text-xs text-slate-400">
-        Este chat es una demo. Tus datos se usan para mostrar cómo TuChatbot puede capturar contacto
-        y calificar interesados de forma automática.
+  <section class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+    <!-- Columna izquierda -->
+    <div>
+      <h2 class="text-4xl md:text-5xl font-bold mb-5 leading-tight">
+        <span class="gradient-text">TuChatbot con IA</span> que vende y atiende 24/7 en tu WhatsApp
+      </h2>
+      <p class="text-gray-400 mb-6 max-w-lg text-base md:text-lg">
+        Responde como tú, captura datos de tus conversaciones y agenda citas automáticamente. Todo personalizado con tu voz y tu estilo.
       </p>
+      <div class="flex flex-wrap gap-4 mb-4">
+        <a href="#prueba" class="px-6 py-3 rounded-full btn-primary text-sm">Prueba gratis 3 días</a>
+        <a href="#prueba" data-whatsapp-cta="true" data-origin="cta_hablemos" class="px-6 py-3 rounded-full border border-blue-500/70 text-blue-300 hover:bg-blue-500 hover:text-white transition">Hablemos por WhatsApp</a>
+      </div>
+      <p class="text-xs text-gray-500">Tu Chatbot personalizado con Inteligencia Artificial</p>
     </div>
-  </div>
-</section>
 
+    <!-- CHAT HERO -->
+    <div>
+      <div class="bg-gradient-to-r from-blue-700 to-blue-500 border border-blue-400/40 rounded-3xl p-5 md:p-6 shadow-[0_20px_60px_rgba(15,23,42,0.9)]">
+        <div class="flex justify-between items-center mb-4">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-2xl bg-slate-950/70 border border-slate-700 flex items-center justify-center">
+              <span class="text-xs font-semibold text-blue-100">TU</span>
+            </div>
+            <div>
+              <p class="text-xs font-semibold text-slate-50">TuChatbot</p>
+              <p class="text-[10px] text-slate-400">Asistente IA · WhatsApp</p>
+            </div>
+          </div>
+          <span class="text-[7px] md:text-xs text-emerald-300 border border-emerald-500/40 flex items-center gap-1 px-2 py-1 rounded-full bg-emerald-500/10">
+            <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> Inteligencia Artificial en acción
+          </span>
+        </div>
 
-    <!-- BENEFICIOS -->
-  <section id="beneficios" class="py-20 border-t border-gray-800 section-bg text-center">
+        <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 flex flex-col h-80">
+          <!-- Mensajes -->
+          <div id="chatbox" class="flex-1 space-y-3 overflow-y-auto pr-1 text-xs md:text-sm"></div>
+
+          <!-- Input -->
+          <form id="chatForm" class="mt-3 flex items-center gap-2">
+            <input
+              id="chatInput"
+              type="text"
+              placeholder="Escribe aquí como si hablaras con un posible cliente..."
+              class="flex-1 bg-slate-900 border border-slate-700 rounded-full px-3 py-2 text-[11px] md:text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+            />
+            <button
+              type="submit"
+              class="px-3 py-2 rounded-full bg-blue-600 text-white text-[11px] md:text-xs font-semibold hover:bg-blue-500 transition"
+            >
+              Enviar
+            </button>
+          </form>
+        </div>
+      </div>
+      <p class="mt-3 text-[10px] md:text-xs text-slate-500 text-right">Simulación de chat real con TuChatbot</p>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section class="py-16 border-t border-gray-800 section-bg">
     <div class="max-w-6xl mx-auto px-6">
-      <h3 class="text-3xl font-semibold mb-12">Beneficios de usar <span class="gradient-text">TuChatbot</span></h3>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-[#18181F] p-6 rounded-2xl border border-gray-800">
-          <h4 class="text-lg font-semibold mb-2">🚀 Ahorra tiempo</h4>
-          <p class="text-gray-400 text-sm">Responde automáticamente 24/7 y olvídate de las tareas repetitivas.</p>
+      <h3 class="text-3xl font-semibold mb-4 text-center">Lo que TuChatbot hace por ti</h3>
+      <p class="text-center text-gray-400 mb-10 max-w-2xl mx-auto">
+        No es solo un bot: es un asistente que entiende tu negocio, responde como tú y convierte más conversaciones en clientes.
+      </p>
+      <div class="grid md:grid-cols-3 gap-6 text-sm text-gray-300">
+        <div class="bg-[#18181F] rounded-2xl border border-gray-800 p-5">
+          <p class="text-blue-400 text-xs font-semibold mb-1">01 · Responde como tú</p>
+          <p class="font-semibold mb-2">Tu tono, tu estilo, tus respuestas</p>
+          <p class="text-gray-400 text-sm">
+            Entrenamos el chatbot con tu forma de hablar, tus servicios, precios y objeciones más frecuentes para que responda como si fueras tú.
+          </p>
         </div>
-        <div class="bg-[#18181F] p-6 rounded-2xl border border-gray-800">
-          <h4 class="text-lg font-semibold mb-2">🤖 Habla como tú</h4>
-          <p class="text-gray-400 text-sm">Entrena tu Chatbot con tu tono, estilo y respuestas personalizadas.</p>
+        <div class="bg-[#18181F] rounded-2xl border border-gray-800 p-5">
+          <p class="text-blue-400 text-xs font-semibold mb-1">02 · Captura leads</p>
+          <p class="font-semibold mb-2">Registra datos sin que tengas que escribir</p>
+          <p class="text-gray-400 text-sm">
+            Guarda nombre, email, teléfono, interés y origen de cada contacto directamente en tu hoja de cálculo, listo para tu CRM o seguimiento.
+          </p>
         </div>
-        <div class="bg-[#18181F] p-6 rounded-2xl border border-gray-800">
-          <h4 class="text-lg font-semibold mb-2">💡 Convierte más</h4>
-          <p class="text-gray-400 text-sm">Capta leads y agenda reuniones automáticamente sin perder oportunidades.</p>
+        <div class="bg-[#18181F] rounded-2xl border border-gray-800 p-5">
+          <p class="text-blue-400 text-xs font-semibold mb-1">03 · Filtra y agenda</p>
+          <p class="font-semibold mb-2">Filtra curiosos de clientes serios</p>
+          <p class="text-gray-400 text-sm">
+            Identifica la intención real, responde dudas y cuando la persona está lista, la lleva a agendar una cita o a hablar contigo directamente.
+          </p>
         </div>
       </div>
     </div>
@@ -143,49 +157,23 @@
   <section id="funciona" class="py-20 border-t border-gray-800 section-bg">
     <div class="max-w-6xl mx-auto px-6 text-center">
       <h3 class="text-3xl font-semibold mb-4">Cómo funciona <span class="gradient-text">TuChatbot</span></h3>
-      <p class="text-gray-400 mb-12">En lugar de responder uno a uno, dejas que TuChatbot haga el trabajo por ti: responde, filtra, captura y te entrega las mejores oportunidades listas para cerrar.</p>
+      <p class="text-gray-400 mb-12">En lugar de responder uno a uno, TuChatbot atiende por ti, captura datos y te entrega las mejores oportunidades listas para cerrar.</p>
       <div class="grid md:grid-cols-3 gap-8 text-left text-gray-300">
         <div class="bg-[#18181F] p-6 rounded-2xl border border-gray-800">
           <h4 class="text-blue-400 font-semibold mb-2">Paso 1</h4>
           <h5 class="font-semibold mb-2">Configura tu voz y tu oferta</h5>
-          <p>Cargamos la información clave de tu marca, tus servicios y tu forma de comunicar para que TuChatbot hable como tú.</p>
+          <p>Cargamos la información clave de tu marca, tus servicios, precios, garantías y tu forma de comunicar para que TuChatbot hable como tú.</p>
         </div>
         <div class="bg-[#18181F] p-6 rounded-2xl border border-gray-800">
           <h4 class="text-blue-400 font-semibold mb-2">Paso 2</h4>
-          <h5 class="font-semibold mb-2">TuChatbot responde y filtra</h5>
-          <p>Cuando alguien escribe, TuChatbot responde, identifica interés real y pide los datos necesarios (WhatsApp y correo).</p>
+          <h5 class="font-semibold mb-2">Lo conectamos a tus canales</h5>
+          <p>Integramos TuChatbot con tu WhatsApp y, si lo deseas, con tu web, redes sociales o embudos de captación.</p>
         </div>
         <div class="bg-[#18181F] p-6 rounded-2xl border border-gray-800">
           <h4 class="text-blue-400 font-semibold mb-2">Paso 3</h4>
-          <h5 class="font-semibold mb-2">Recibes leads listos para accionar</h5>
-          <p>Te llegan contactos ya filtrados y con contexto para que puedas agendar, enviar propuesta o continuar la conversación.</p>
+          <h5 class="font-semibold mb-2">Empieza a atender y convertir 24/7</h5>
+          <p>El chatbot responde, filtra, captura datos y te entrega los contactos listos para agendar, enviar propuesta o cerrar la venta.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- COMPARATIVA -->
-  <section class="py-20 section-bg border-t border-gray-800">
-    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8">
-      <div class="bg-[#18181F] p-6 rounded-2xl border border-blue-700">
-        <h4 class="font-semibold mb-4">Con TuChatbot</h4>
-        <ul class="space-y-2 text-gray-300 text-sm">
-          <li>✅ IA entrenada en tu tono y manera: ¡Habla como tu!</li>
-          <li>✅ Conecta WhatsApp y responde 24/7</li>
-          <li>✅ Guarda leads en tu Sheets con nombre, apellido, email y teléfono</li>
-          <li>✅ Memoria completa por cada conversación</li>
-          <li>✅ Soporte directo por WhatsApp con TuChatbot</li>
-        </ul>
-      </div>
-      <div class="bg-[#18181F] p-6 rounded-2xl border border-gray-800">
-        <h4 class="font-semibold mb-4">Sin TuChatbot</h4>
-        <ul class="space-y-2 text-gray-300 text-sm">
-          <li>❌ Respuestas tardías o inconsistentes</li>
-          <li>❌ Leads sin datos ordenados ni seguimiento</li>
-          <li>❌ Sin trazabilidad en las conversaciones</li>
-          <li>❌ Mensajes que suenan a robot o muy genéricos</li>
-          <li>❌ Tiempo perdido en tareas repetitivas</li>
-        </ul>
       </div>
     </div>
   </section>
@@ -193,61 +181,72 @@
   <!-- PLANES -->
   <section id="planes" class="py-20 border-t border-gray-800">
     <div class="max-w-6xl mx-auto px-6 text-center">
-      <h3 class="text-3xl font-semibold mb-10">Elige tu plan</h3>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-[#18181F] p-8 rounded-2xl border border-gray-800">
-          <p class="text-gray-400 mb-2">Desde 17€/mes</p>
-          <h4 class="text-xl font-semibold mb-4">Plan Personal</h4>
-          <p class="text-gray-400 mb-6">Ideal para freelancers o marcas personales.</p>
-          <ul class="text-left space-y-2 text-sm text-gray-300 mb-6">
-            <li>✅ 1 Asistente Virtual IA con voz personal</li>
-            <li>✅ Conecta tu cuenta de WhatsApp</li>
-            <li>✅ 300 conversaciones completas al mes</li>
-            <li>✅ Memoria conversacional</li>
-            <li>✅ Soporte por WhatsApp con TuChatbot</li>
-          </ul>
-          <a href="#prueba" class="btn-primary px-6 py-3 rounded-full inline-block">Prueba gratis 3 días</a>
+      <h3 class="text-3xl font-semibold mb-4">Úsalo a tu manera</h3>
+      <p class="text-gray-400 mb-12 max-w-2xl mx-auto">
+        Puedes usar TuChatbot para tu marca personal, tu negocio o tu equipo. Empezamos con una prueba gratuita para configurarlo a tu medida.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-8 text-left">
+        <!-- Uso personal -->
+        <div class="bg-[#18181F] rounded-2xl border border-gray-800 p-6 flex flex-col justify-between">
+          <div>
+            <h4 class="text-xl font-semibold mb-2">Para uso personal y marca propia</h4>
+            <p class="text-gray-400 mb-4">
+              Ideal si atiendes consultas directas por WhatsApp y quieres que TuChatbot te ahorre tiempo, pero manteniendo tu estilo y tu trato cercano.
+            </p>
+            <ul class="list-disc ml-5 text-gray-400 space-y-2 text-sm">
+              <li>Responde dudas frecuentes mientras tú trabajas, creas o descansas.</li>
+              <li>Filtra curiosos de personas realmente interesadas en trabajar contigo.</li>
+              <li>Recoge datos clave (nombre, contacto, interés) en una hoja compartida.</li>
+            </ul>
+          </div>
+          <div class="mt-6">
+            <p class="text-xs text-gray-500 mb-2">Prueba personalizada para tu marca personal.</p>
+          </div>
         </div>
-        <div class="bg-[#18181F] p-8 rounded-2xl border border-blue-700">
-          <p class="text-gray-400 mb-2">Desde 23€/mes</p>
-          <h4 class="text-xl font-semibold mb-4">Plan para Negocio</h4>
-          <p class="text-gray-400 mb-6">Para empresas que quieren convertir más y crecer.</p>
-          <ul class="text-left space-y-2 text-sm text-gray-300 mb-6">
-            <li>✅ 1 Asistente Virtual IA con voz de tu marca</li>
-            <li>✅ Conecta tu cuenta de WhatsApp</li>
-            <li>✅ 500 conversaciones completas al mes</li>
-            <li>✅ Guarda datos en Sheets (nombre, apellido, teléfono, email)</li>
-            <li>✅ Agenda citas</li>
-            <li>✅ Memoria conversacional</li>
-            <li>✅ Soporte por WhatsApp con TuchatBot</li>
-          </ul>
-          <a href="#prueba" class="btn-primary px-6 py-3 rounded-full inline-block">Prueba gratis 3 días</a>
+
+        <!-- Uso negocio -->
+        <div class="bg-[#18181F] rounded-2xl border border-gray-800 p-6 flex flex-col justify-between">
+          <div>
+            <h4 class="text-xl font-semibold mb-2">Para negocios y equipos</h4>
+            <p class="text-gray-400 mb-4">
+              Diseñado para negocios que reciben leads todos los días y necesitan orden, priorización y seguimiento sin perder el trato humano.
+            </p>
+            <ul class="list-disc ml-5 text-gray-400 space-y-2 text-sm">
+              <li>Centraliza leads de campañas, web y redes en un solo flujo.</li>
+              <li>Responde rápido, incluso fuera de horario, manteniendo tu guion comercial.</li>
+              <li>Identifica oportunidades calientes y envía alertas a tu equipo para cerrar.</li>
+            </ul>
+          </div>
+          <div class="mt-6">
+            <p class="text-xs text-gray-500 mb-2">Adaptable a tu proceso comercial y a tu volumen de leads.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FORMULARIO -->
+  <!-- PRUEBA GRATIS -->
   <section id="prueba" class="py-20 border-t border-gray-800 section-bg">
     <div class="max-w-4xl mx-auto px-6">
-      <h3 class="text-3xl font-semibold text-center mb-8">Prueba gratis 3 días</h3>
+      <h3 class="text-3xl font-semibold text-center">Prueba gratis 3 días</h3>
       <p class="text-center text-gray-400 mb-8">Déjanos tus datos y te contactamos.</p>
-      <form class="grid md:grid-cols-2 gap-6 text-sm">
+      <form id="leadForm" class="grid md:grid-cols-2 gap-6 text-sm">
         <div>
-          <label class="block mb-2 text-gray-400">Nombre</label>
-          <input type="text" placeholder="Tu nombre" class="w-full p-3 rounded-lg bg-[#18181F] border border-gray-700" />
+          <label for="nombre" class="block mb-2 text-gray-400">Nombre</label>
+          <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" class="w-full p-3 rounded-lg bg-[#18181F] border border-gray-700 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required />
         </div>
         <div>
-          <label class="block mb-2 text-gray-400">Apellido</label>
-          <input type="text" placeholder="Tu apellido" class="w-full p-3 rounded-lg bg-[#18181F] border border-gray-700" />
+          <label for="apellido" class="block mb-2 text-gray-400">Apellido</label>
+          <input id="apellido" name="apellido" type="text" placeholder="Tu apellido" class="w-full p-3 rounded-lg bg-[#18181F] border border-gray-700 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required />
         </div>
         <div>
-          <label class="block mb-2 text-gray-400">Email</label>
-          <input type="email" placeholder="tu@email.com" class="w-full p-3 rounded-lg bg-[#18181F] border border-gray-700" />
+          <label for="email" class="block mb-2 text-gray-400">Email</label>
+          <input id="email" name="email" type="email" placeholder="tu@email.com" class="w-full p-3 rounded-lg bg-[#18181F] border border-gray-700 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required />
         </div>
         <div>
-          <label class="block mb-2 text-gray-400">Teléfono (con indicativo país)</label>
-          <input type="tel" placeholder="+34 600 123 456" class="w-full p-3 rounded-lg bg-[#18181F] border border-gray-700" />
+          <label for="telefono" class="block mb-2 text-gray-400">Teléfono (con indicativo país)</label>
+          <input id="telefono" name="telefono" type="tel" placeholder="+34 600 123 456" class="w-full p-3 rounded-lg bg-[#18181F] border border-gray-700 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required />
         </div>
         <div class="md:col-span-2 text-center mt-4">
           <button type="submit" class="btn-primary px-8 py-3 rounded-full">Prueba gratis 3 días</button>
@@ -257,55 +256,49 @@
     </div>
   </section>
 
-  <!-- USO PERSONAL Y EMPRESAS -->
+  <!-- USO PERSONAL Y EMPRESAS (texto ya existente, sin cambios de lógica) -->
   <section class="py-20 border-t border-gray-800">
     <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12">
       <div>
         <h3 class="text-2xl font-semibold mb-4">Para uso personal y marca propia</h3>
-        <p class="text-gray-400 mb-4">Si tienes una marca personal, eres creador de contenido, freelance o profesional independiente, TuChatbot se convierte en tu filtro inteligente.</p>
+        <p class="text-gray-400 mb-4">
+          Si tienes una marca personal o trabajas como profesional independiente, TuChatbot se convierte en tu filtro inteligente.
+        </p>
         <ul class="list-disc ml-6 text-gray-400 space-y-2 text-sm">
           <li>Responde dudas frecuentes mientras tú trabajas, creas o descansas.</li>
-          <li>Envía enlaces a tu portafolio, agenda, formulario o recursos.</li>
-          <li>Guarda los datos de los contactos interesados para que les escribas después.</li>
+          <li>Filtra curiosos de personas realmente interesadas en trabajar contigo.</li>
+          <li>Recoge datos clave (nombre, contacto, interés) en una hoja compartida.</li>
         </ul>
       </div>
-      <div class="bg-[#18181F] p-6 rounded-2xl border border-blue-700 text-gray-300">
-        <h4 class="text-blue-400 mb-2">Ejemplo realista</h4>
-        <p>“Recibo mensajes a todas horas pidiendo información y no siempre puedo responder. TuChatbot responde por mí, manda la info correcta y me deja los leads calientes listos para escribirles más tarde.”</p>
-      </div>
-    </div>
-
-    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 mt-20">
       <div>
-        <h3 class="text-2xl font-semibold mb-4">Para equipos y empresas</h3>
-        <p class="text-gray-400 mb-4">Convierte TuChatbot en el primer punto de contacto de tu negocio: contesta, educa al cliente y deriva a la persona o canal correcto.</p>
+        <h3 class="text-2xl font-semibold mb-4">Para negocios y equipos</h3>
+        <p class="text-gray-400 mb-4">
+          Ideal si tu negocio recibe leads todos los días y necesitas orden, priorización y seguimiento, sin perder el trato humano.
+        </p>
         <ul class="list-disc ml-6 text-gray-400 space-y-2 text-sm">
-          <li>Reduce carga en tu equipo de atención o setters.</li>
-          <li>Estandariza respuestas y procesos de información.</li>
-          <li>Integra con tus herramientas (CRM, Sheets, automatizaciones, etc.).</li>
+          <li>Centraliza leads de campañas, web y redes en un solo flujo.</li>
+          <li>Responde rápido incluso fuera de horario, manteniendo tu guion comercial.</li>
+          <li>Identifica oportunidades calientes y envía alertas a tu equipo para cerrar.</li>
         </ul>
-      </div>
-      <div class="bg-[#18181F] p-6 rounded-2xl border border-blue-700 text-gray-300">
-        <h4 class="text-blue-400 mb-2">Resultado típico</h4>
-        <p>“Antes teníamos el WhatsApp saturado. Ahora TuChatbot responde lo básico, captura datos y solo nos llegan las conversaciones que realmente vale la pena atender.”</p>
       </div>
     </div>
   </section>
 
   <!-- CTA FINAL -->
-  <section class="bg-gradient-to-r from-blue-700 to-blue-500 py-16 text-center">
-    <h3 class="text-2xl md:text-3xl font-semibold mb-4">Convierte TuChatbot en tu asistente 24/7</h3>
-    <p class="max-w-2xl mx-auto mb-6 text-sm md:text-base opacity-90">
-      Empieza con una prueba gratuita de 3 días y descubre cómo puede transformar tu comunicación y tus resultados.
-    </p>
-    <a href="#prueba" class="px-6 py-3 rounded-full btn-light text-sm">Empezar ahora · Prueba gratis 3 días</a>
+  <section class="py-16 border-t border-gray-800 section-bg text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h3 class="text-3xl font-semibold mb-4">Empieza a ahorrar tiempo desde esta semana</h3>
+      <p class="text-gray-400 mb-6">
+        Activa TuChatbot con una prueba gratuita de 3 días y descubre cómo puede transformar tu comunicación y tus resultados.
+      </p>
+      <a href="#prueba" class="px-6 py-3 rounded-full btn-light text-sm">Empezar ahora · Prueba gratis 3 días</a>
+    </div>
   </section>
 
   <footer class="py-8 text-center text-gray-500 text-xs border-t border-gray-800 bg-[#0B0B0F]">
-    © 2025 TuChatbot — Tu asistente personalizado con Inteligencia Artificial.
-  </footer
+    © 2025 TuChatbot — Tu asistente personalizado con Inteligencia Artificial
+  </footer>
 
-  </body>
   <script>
   const chatbox = document.getElementById('chatbox');
   const form = document.getElementById('chatForm');
@@ -322,8 +315,10 @@
 
     bubble.textContent = msg;
     div.appendChild(bubble);
-    chatbox.appendChild(div);
-    chatbox.scrollTop = chatbox.scrollHeight;
+    if (chatbox) {
+      chatbox.appendChild(div);
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
   }
 
   let step = 0;
@@ -404,13 +399,13 @@
         if (!isValidPhone(t)) {
           setTimeout(() => {
             addMsg(
-              'Necesito un número válido con el formato correcto, incluyendo el prefijo de país (ejemplo: +34 600 123 456). Inténtalo de nuevo, por favor.',
+              'Necesito un número válido con el formato correcto y prefijo de país (ejemplo: +34 600 123 456). Inténtalo de nuevo, por favor.',
               'bot'
             );
           }, 400);
           return;
         }
-        lead.phone = t.replace(/\D/g, '');
+        lead.phone = t.trim();
         step = 2;
         setTimeout(() => {
           addMsg(
@@ -434,12 +429,108 @@
         step = 3;
         setTimeout(() => {
           addMsg(
-            '¡Listo! 🎉 Gracias por tus datos 🙌 Podremos contactarte a los datos que nos diste para activar tu prueba gratis de TuChatbot. Si prefieres hacerlo ahora, también puedes pulsar cualquier botón de “Probar gratis” de la página.',
+            '¡Listo! 🎉 Gracias por tus datos 🙌 Podremos contactarte mejor y ajustar TuChatbot a tu caso. Si quieres activar la prueba ahora, también puedes pulsar cualquier botón de “Probar gratis” de la página.',
             'bot'
           );
         }, 400);
       }
     });
   }
-</script>
+
+  // --- Envío de leads a Sheets (n8n) + redirección a WhatsApp ---
+  const WEBHOOK_URL = 'https://n8n-docker-233z.onrender.com/webhook/lead-landing-sebasbot'; // Cambia este endpoint si usas otro
+  const WHATSAPP_PHONE = '34603938659';
+
+  const leadForm = document.getElementById('leadForm');
+  const inputNombre = document.getElementById('nombre');
+  const inputApellido = document.getElementById('apellido');
+  const inputEmail = document.getElementById('email');
+  const inputTelefono = document.getElementById('telefono');
+
+  async function sendLeadToWebhook(payload) {
+    try {
+      const res = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+      return res.ok;
+    } catch (error) {
+      console.error('Error enviando lead al webhook:', error);
+      return false;
+    }
+  }
+
+  function buildWhatsappUrl(message) {
+    const encoded = encodeURIComponent(message);
+    return `https://wa.me/${WHATSAPP_PHONE}?text=${encoded}`;
+  }
+
+  async function handleWhatsAppCTA(event, origin) {
+    if (event) event.preventDefault();
+
+    const nombre = (inputNombre?.value || '').trim();
+    const apellido = (inputApellido?.value || '').trim();
+    const email = (inputEmail?.value || '').trim();
+    const telefono = (inputTelefono?.value || '').trim();
+
+    const hasFullData = !!(nombre && apellido && email && telefono);
+
+    let savedOk = false;
+
+    if (hasFullData) {
+      const payload = {
+        nombre,
+        apellido,
+        email,
+        telefono,
+        origen: origin || 'cta'
+      };
+      savedOk = await sendLeadToWebhook(payload);
+    }
+
+    let message = '';
+
+    if (hasFullData && savedOk) {
+      message =
+        `Hola, soy ${nombre} ${apellido}.\n` +
+        `Acabo de solicitar la *prueba gratis de 3 días* de TuChatbot desde la landing.\n\n` +
+        `Mis datos son:\n` +
+        `- Nombre: ${nombre} ${apellido}\n` +
+        `- Email: ${email}\n` +
+        `- Teléfono: ${telefono}\n\n` +
+        `Me gustaría que me ayudes a configurar mi chatbot.`;
+    } else if (hasFullData && !savedOk) {
+      message =
+        `Hola, he intentado dejar mis datos en la landing de TuChatbot para la *prueba gratis de 3 días*, ` +
+        `pero el sistema no pudo guardarlos automáticamente.\n\n` +
+        `Te los dejo aquí:\n` +
+        `- Nombre: ${nombre} ${apellido}\n` +
+        `- Email: ${email}\n` +
+        `- Teléfono: ${telefono}\n\n` +
+        `Por favor confirma que los recibiste.`;
+    } else {
+      message =
+        `Hola, vengo de la landing de TuChatbot y quiero más información / probar el chatbot, ` +
+        `pero aún no se guardaron mis datos en el formulario.\n\n` +
+        `¿Me ayudas a continuar el proceso?`;
+    }
+
+    const url = buildWhatsappUrl(message);
+    window.open(url, '_blank');
+  }
+
+  // Enviar formulario y luego abrir WhatsApp
+  if (leadForm) {
+    leadForm.addEventListener('submit', (e) => handleWhatsAppCTA(e, 'form_prueba'));
+  }
+
+  // Botón "Hablemos por WhatsApp" del hero
+  document.querySelectorAll('[data-whatsapp-cta="true"]').forEach((btn) => {
+    btn.addEventListener('click', (e) => handleWhatsAppCTA(e, btn.dataset.origin || 'cta'));
+  });
+  </script>
+</body>
 </html>
